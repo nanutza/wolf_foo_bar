@@ -119,4 +119,11 @@ p Team_New_York_Aquatics[:coach_1][:pools][0]
 puts " What is Bob's breast stroke skill level?"
 p Team_New_York_Aquatics[:swimmer_2][:stroke][:breast]
 
+puts " Coach Alex starts coaching at Hostos and drops the YMCA"
+p Team_New_York_Aquatics[:coach_2][:pools][1].replace('Hostos')
+
+puts " Croft starts swimming butterfly."
+p Team_New_York_Aquatics[:board_1][:stroke][:fly] = "beginner"
+
+
 
