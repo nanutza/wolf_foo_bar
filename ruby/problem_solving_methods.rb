@@ -1,12 +1,11 @@
-# Write a method that takes an array of integers and an integer to search for. The method should return the index of the item, or nil if the integer is not present in the array. Don't use built-in array methods like .index. You are allowed to use .length and .each.
-
-# Here's an example of how we might use your method (assuming you call it search_array):n this
-
+# 5.6 Mandatory Pairing: Solving Problems with Data Structures
+# paired with Chris_Johnson
 
 # method that takes an array and value
 # returns an index
 # nil if not present
 
+# Release 0: Implement a Simple Search
 def search_array(array, value)
   idx = 0
   array.each do
@@ -21,7 +20,7 @@ def search_array(array, value)
   end
 end
 
-
+# Release 1: Calculate Fibonacci Numbers
 def fib(num)
   
   if num == 0
@@ -29,7 +28,7 @@ def fib(num)
   
   elsif num == 1
     return [0]
-  
+      
   else
     start_array = [0, 1]
     while start_array.length < num
@@ -39,9 +38,36 @@ def fib(num)
   return start_array
 end
 
+# Release 2: Sort an Array 
+def bubble_sort(array)
+  # iterate through the array
+  array.each do
+    first = 0
+    second = 1
+    array.map do |value|
+      
+      # compare two adjacent values
+      if array[second] && value > array[second]
+      # move the greater value to the right and the lesser left
+        save = array[first]
+        array[first] = array[second]
+        array[second] = save
+      end
+      first += 1
+      second += 1
+    end
+  end
+print array
+end
+
+ 
 
 #driver code
-search_array([42, 89, 23, 1], 89)
+array = [42, 89, 23, 1]
+search_array(array, 89)
   
 fib(6)
 print fib(100).last == 218922995834555169026
+
+bubble_sort([10,5,2, 500, 34, 56, 67, 33, 20, 3])
+
