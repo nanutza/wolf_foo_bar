@@ -26,7 +26,7 @@
 class Puppy
 
   def initialize
-    puts "Initializing puppy instance"
+    puts "Initializing new puppy instance ..."
   end
 
   def fetch(toy)
@@ -50,7 +50,31 @@ class Puppy
   end
 end
 
+class Kitty
+  attr_reader :name
+  
+  def initialize(name)
+    @name = name
+  end
+  
+  def speak(reason)
+    if reason == "intruder"
+      p "*Hisses*"
+    elsif reason == "mom"
+      p "*Purrs*"
+    else
+      p "*Cries*"
+    end
+  end
 
+  def hide(spot)
+    p "#{@name} hides in the #{spot}."
+  end
+
+
+end
+
+	
 # Driver Code
 ramen = Puppy.new
 dubu = Puppy.new
@@ -65,3 +89,24 @@ ramen.roll_over
 puts "Dubu is #{dubu.dog_years(4)} dog years old."
 
 dubu.begs(2, "grapes")
+
+marcello = Kitty.new("Marcello")
+mimi = Kitty.new("Mimi")
+
+mimi.hide("closet")
+marcello.speak("mom")
+mimi.speak("mailman")
+marcello.speak("intruder")
+
+
+kitty_array = []
+	i = 0
+		until i == 50
+			name = [*('a'..'z')].sample(4).join.capitalize
+			kitty_array << Kitty.new(name)
+		 	i += 1
+		end
+
+kitty_array.each {|x| puts "New kitty: #{x.name}" }		
+
+
