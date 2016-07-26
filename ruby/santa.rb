@@ -10,8 +10,8 @@
 
 class Santa
 
-	attr_reader :gender   								#refactor getter
-	attr_accessor :age, :ethnicity                      #refactor setter
+	attr_reader :age :ethnicity     				#refactor getter
+	attr_accessor :gender                           #refactor setter
 
 
 	def initialize(gender, ethnicity)
