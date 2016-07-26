@@ -9,6 +9,10 @@
 # An initialize method that prints "Initializing Santa instance ...".
 
 class Santa
+	
+	attr_reader :gender   								#refactor getter
+	attr_accessor :age, :ethnicity                      #refactor setter
+
 
 	def initialize(gender, ethnicity)
 		p "Initializing Santa instance ..."
@@ -18,19 +22,19 @@ class Santa
 		@age = 0
 	end
 
-	#Release 2  -   getter and setter methods
+	#Release 2  -   getter and setter methods  (refactored in release 3)
 
-	def gender=(gender)
-		@gender = gender
-	end
+	# def gender=(gender)
+	# 	@gender = gender
+	# end
 
-	def age(age)
-		@age
-	end
+	# def age(age)
+	# 	@age
+	# end
 
-	def ethnicity
-		@ethnicity
-	end
+	# def ethnicity
+	# 	@ethnicity
+	# end
 
 	def celebrate_birthday
 		puts "Santa's current age is #{@age}"
