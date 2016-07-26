@@ -10,27 +10,31 @@
 
 class Santa
 
+	attr_reader :gender   								#refactor getter
+	attr_accessor :age, :ethnicity                      #refactor setter
+
+
 	def initialize(gender, ethnicity)
-		p "Initializing Santa instance ..."
+		# p "Initializing Santa instance ..."
 		@gender = gender
 		@ethnicity = ethnicity
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-		@age = 0
+		@age = rand(0..140) # Set your new Santa's age to a random number between 0 and 140.
 	end
 
-	#Release 2  -   getter and setter methods
+	#Release 2  -   getter and setter methods  (refactored in release 3)
 
-	def gender=(gender)
-		@gender = gender
-	end
+	# def gender=(gender)
+	# 	@gender = gender
+	# end
 
-	def age(age)
-		@age
-	end
+	# def age(age)
+	# 	@age
+	# end
 
-	def ethnicity
-		@ethnicity
-	end
+	# def ethnicity
+	# 	@ethnicity
+	# end
 
 	def celebrate_birthday
 		puts "Santa's current age is #{@age}"
@@ -100,4 +104,16 @@ claus.celebrate_birthday
 claus.get_mad_at("Vixen")
 p claus.gender
 p claus.ethnicity
+
+# Release 4: Build Many, Many Santas
+30.times{print " * "} 
+puts
+i = 0
+santa=[]
+until i == 20
+	santa[i] = Santa.new(example_genders.sample, example_ethnicities.sample) #method sample randomizes
+	puts "santa_#{i + 1} / Age: #{santa[i].age} / Gender: #{santa[i].gender} / Ethnicity: #{santa[i].ethnicity}"
+	i += 1
+end
+30.times{print " * "} 
 
