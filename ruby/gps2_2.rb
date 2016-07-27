@@ -7,7 +7,7 @@
   # set default quantity
   # store the items 
   # print the list to the console "p" visualize without making it nil
-# output: hash
+# output: [hash]
 
 # Method to add an item to a list
 # input: item name and optional quantity
@@ -22,7 +22,7 @@
 # Method to update the quantity of an item
 # input: ask which key and update the value
 # steps: within the assigned key update value
-# output: hash
+# output:hash
 
 # Method to print a list and make it look pretty
 # input: our wondeful hash
@@ -38,8 +38,8 @@ def create_a_list(list)
   shopping_list
 end
     
-def add_update_item(item, quantity, shopping_list)
-  shopping_list[item] = quantity
+def add_item(item, shopping_list)
+  shopping_list[item] = 1
 end
   
 def remove_item(item, shopping_list)
@@ -62,3 +62,19 @@ def error_check(item, value, shopping_list)
   shopping_list.key?(item) ? true : false
 end
 
+#Driver Code
+list = []
+shopping_list = create_a_list( "Lemonade Tomatoes Onions Ice-Cream")
+
+update_quantity("Lemonade", 2, shopping_list)
+update_quantity("Tomatoes", 3, shopping_list)
+update_quantity("Onions", 1, shopping_list)
+update_quantity("Ice-Cream", 4, shopping_list)
+
+remove_item("Lemonade", shopping_list)
+
+update_quantity("Ice-Cream", 1, shopping_list)
+
+print_list(shopping_list)
+
+# update_quantity("No-cream", 2, shopping_list)
