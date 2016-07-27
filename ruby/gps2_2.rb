@@ -28,3 +28,37 @@
 # input: our wondeful hash
 # steps: iterate through the hash
 # output: all the key-value pairs.
+
+def create_a_list(list)
+  shopping_list = {}
+  split_list = list.split(" ")
+  split_list.each do |item, value|
+  shopping_list[item] = 1
+  end
+  shopping_list
+end
+    
+def add_update_item(item, quantity, shopping_list)
+  shopping_list[item] = quantity
+end
+  
+def remove_item(item, shopping_list)
+  shopping_list.delete(item)
+end
+
+def update_quantity(item, quantity, shopping_list)
+  if error_check(item, quantity, shopping_list)
+  shopping_list[item] = quantity
+  end
+end
+
+def print_list(shopping_list)
+  shopping_list.each do |item, value|
+    puts "We are buying #{value} #{item}"
+  end
+end
+  
+def error_check(item, value, shopping_list)
+  shopping_list.key?(item) ? true : false
+end
+
