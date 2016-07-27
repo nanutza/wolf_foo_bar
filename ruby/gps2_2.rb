@@ -78,3 +78,41 @@ update_quantity("Ice-Cream", 1, shopping_list)
 print_list(shopping_list)
 
 # update_quantity("No-cream", 2, shopping_list)
+
+
+
+
+
+# Release 5: Reflect
+
+# What did you learn about pseudocode from working on this challenge?
+# Pseudocode is important because it helps to shape your thought process logically. 
+# Making sure that you add details that are clear and specific.
+
+# What are the tradeoffs of using arrays and hashes for this challenge?
+# Arrays are easier to manipulate and the rigid order, allows us to retrieve items using indexes.
+# In this challege, storing the information as a hash was clearly superior, 
+# because we had both grocery item and quantity..
+# This challenge and pairing helped to consolidate creating, adding, 
+# updating, and deleting keys in the hash.
+
+
+# What does a method return?
+# An argument is passed through the method specified by the parameters to modify or return
+# a certain result. Ruby has an implicit return of the last item passed.
+
+
+# What kind of things can you pass into methods as arguments?
+# Integers, strings, arrays, hashes, basically any of our variables.
+
+# How can you pass information between methods?
+# To pass information between methods, the information has to be returned in the method and
+# called outside the method as a local variable.
+
+
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+# I have a better understanding of hashes now and how manipulate a hash. 
+# Figuring our the scope of variables and whether or not a method 
+# returns the desired value is still challenging.
+
+
