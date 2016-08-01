@@ -1,17 +1,15 @@
 require_relative 'word_bank'
 
 class WordGame
-attr_reader :word_bank 
-attr_accessor :game_over, :word 
+attr_reader :word_bank
+attr_accessor :game_over
 
 def initialize
-	@word = word 
 	@guesses = []
 	@guess_count = 0
-	@word_bank = word_bank
 	@game_over = false
 	@console = []
-	@max_guesses
+	@max_guesses = 0
 	@correct_letter = []
 end
 
@@ -24,6 +22,7 @@ def play_game(word, letter)
 	check_letter(word,letter)
 end
 
+private
 def check_letter(word,letter)
 
 	 idx = 0
