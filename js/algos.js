@@ -6,12 +6,26 @@
 // 3.  compare and sort from shortest to longest in length
 // 4.  return the longest phrase.
 
+function longestPhrase(phrase) {
+var phrases = phrase;
 
-var phrases = ["long phrase","longest phrase","longer phrase"]
-var wordLength = [0,0,0]
-
-for (var i = 0; 1 < phrases.length; i++) {
-	wordLength[i] = phrases[i].length;
-	wordLength.sort(function(a, b) {return a - b});
+phrases.sort(function(a, b) {
+	return b.length - a.length;
+});
+console.log(phrases[0]);
 }
-console.log(phrases[wordLength[2]])
+
+// for (var i = 0; 1 < phrases.length - 1; i++) {
+// 	if (phrases[i].length < phrases[i + 1].length) {
+// 		var foo = phrases[i];
+// 		phrases[i] = phrases[i + 1];
+// 		phrases[i + 1] = foo;
+// 	} 
+	
+// }
+// console.log(phrase[0])
+// }
+// Release 0
+
+longestPhrase(["long phrase","longest phrase","longer phrase"])
+longestPhrase(["apple", "tangerine", "orange", "egg","grape-fruit", "chocolate_chip_cookie"])
