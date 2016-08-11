@@ -1,0 +1,107 @@
+CREATE TABLE businesses(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(255)
+);
+
+INSERT INTO businesses (name) VALUES ("Grundy Hollow Wedding Chapel");
+INSERT INTO businesses (name) VALUES ("Amir's Towing");
+INSERT INTO businesses (name) VALUES ("The Beagle Nightclub");
+INSERT INTO businesses (name) VALUES ("Lotus Yoga");
+INSERT INTO businesses (name) VALUES ("Plumbing by Janet");
+INSERT INTO businesses (name) VALUES ("Sushi World");
+INSERT INTO businesses (name) VALUES ("JoeBob's Sportz Barn");
+
+sqlite> SELECT * FROM businesses;
+	1|Grundy Hollow Wedding Chapel
+	2|Amir's Towing
+	3|The Beagle Nightclub
+	4|Lotus Yoga
+	5|Plumbing by Janet
+	6|Sushi World
+	7|JoeBob's Sportz Barn
+
+
+CREATE TABLE users(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255)
+  );
+
+
+INSERT INTO users (first_name, last_name) VALUES ("Bradford", "Pitt");
+INSERT INTO users (first_name, last_name) VALUES ("Mandy", "Kaling");
+INSERT INTO users (first_name, last_name) VALUES ("Angela", "Jolie");
+INSERT INTO users (first_name, last_name) VALUES ("Steven", "Wonder");
+INSERT INTO users (first_name, last_name) VALUES ("Holly", "Berry");
+INSERT INTO users (first_name, last_name) VALUES ("Merryl", "Streepman");
+INSERT INTO users (first_name, last_name) VALUES ("Denzel", "George");
+
+sqlite> SELECT * FROM users;
+	1|Bradford|Pitt
+	2|Mandy|Kaling
+	3|Angela|Jolie
+	4|Steven|Wonder
+	5|Holly|Berry
+	6|Merryl|Streepman
+	7|Denzel|George
+
+
+CREATE TABLE reviews (
+  id INTEGER PRIMARY KEY,
+  stars INT,
+  comment VARCHAR(255),
+  business_id INT,
+  user_id INT,
+  FOREIGN KEY(business_id) REFERENCES businesses(id),
+  FOREIGN KEY(user_id) REFERENCES users(id)
+);
+
+INSERT INTO reviews (stars, comment, business_id, user_id) VALUES (3,"Waited 2 hrs for towing service!",2,1);
+INSERT INTO reviews (stars, comment, business_id, user_id) VALUES (5,"Love doing yoga here, so peaceful",4,2);
+INSERT INTO reviews (stars, comment, business_id, user_id) VALUES (5,"Our wedding was perfect!",1,6);
+INSERT INTO reviews (stars, comment, business_id, user_id) VALUES (4,"Fun Spot, long lines on Saturday night",3,7);
+INSERT INTO reviews (stars, comment, business_id, user_id) VALUES (1,"So expensive, and shoddy service",2,5);
+
+#Joining all three tables together and displaying all data
+
+SELECT * FROM reviews 
+LEFT JOIN users ON reviews.user_id = users.id
+LEFT JOIN businesses ON reviews.business_id = businesses.id;
+
+1|3|Waited 2 hrs for towing service!|2|1|1|Bradford|Pitt|2|Amir's Towing
+2|5|Love doing yoga here, so peaceful|4|2|2|Mandy|Kaling|4|Lotus Yoga
+3|5|Our wedding was perfect!|1|6|6|Merryl|Streepman|1|Grundy Hollow Wedding Chapel
+4|4|Fun Spot, long lines on Saturday night|3|7|7|Denzel|George|3|The Beagle Nightclub
+5|1|So expensive, and shoddy service|2|5|5|Holly|Berry|2|Amir's Towing
+
+
+SELECT 
+users.first_name,
+users.last_name,
+businesses.name,
+reviews.stars,
+reviews.comment
+FROM 
+reviews
+LEFT JOIN users ON reviews.user_id = users.id
+LEFT JOIN businesses ON reviews.business_id = businesses.id;
+
+Bradford|Pitt|Amir's Towing|3|Waited 2 hrs for towing service!
+Mandy|Kaling|Lotus Yoga|5|Love doing yoga here, so peaceful
+Merryl|Streepman|Grundy Hollow Wedding Chapel|5|Our wedding was perfect!
+Denzel|George|The Beagle Nightclub|4|Fun Spot, long lines on Saturday night
+Holly|Berry|Amir's Towing|1|So expensive, and shoddy service
+
+SELECT 
+users.first_name,
+users.last_name,
+businesses.name,
+reviews.stars,
+reviews.comment
+FROM 
+reviews
+LEFT JOIN users ON reviews.user_id = users.id
+LEFT JOIN businesses ON reviews.business_id = businesses.id
+WHERE business_id = 1;
+
+Merryl|Streepman|Grundy Hollow Wedding Chapel|5|Our wedding was perfect!
