@@ -1,0 +1,25 @@
+CREATE TABLE quotes(
+    id INTEGER PRIMARY KEY,
+    quote VARCHAR(255),
+    author VARCHAR(255)
+  );
+
+inspiration :> gem install quote
+Fetching: quote-0.1.8.gem (100%)
+You are now ready to enjoy and maintain your quotes
+Successfully installed quote-0.1.8
+Parsing documentation for quote-0.1.8
+Installing ri documentation for quote-0.1.8
+Done installing documentation for quote after 0 seconds
+1 gem installed
+
+Successfully installed faker-1.6.6
+Parsing documentation for faker-1.6.6
+Done installing documentation for faker after 0 seconds
+1 gem installed
+
+Building native extensions.  This could take a while...
+Successfully installed sqlite3-1.3.11
+Parsing documentation for sqlite3-1.3.11
+Done installing documentation for sqlite3 after 0 seconds
+1 gem installed
