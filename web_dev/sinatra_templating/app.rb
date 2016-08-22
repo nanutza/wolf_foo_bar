@@ -13,7 +13,7 @@ get '/' do
   erb :home
 end
 
-get '/students/new' do
+get '/students/new' do   # create a new route
   erb :new_student
 end
 
