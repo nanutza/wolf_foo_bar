@@ -3,12 +3,16 @@
   <head>
     <title>Ontherails</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
+
     <%= javascript_include_tag 'application' %>
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_key"]%>&callback=initMap"
+  async defer></script>
   </head>
 
   <body>
+
     <%= yield %>
     <footer>
       <form id='train-updater' action='/update_trains' method='get'>
@@ -18,5 +22,6 @@
         <h2>Things go here</h2>
       </div>
     </footer>
+
   </body>
 </html>
