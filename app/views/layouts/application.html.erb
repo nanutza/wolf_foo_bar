@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ontherails</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+
+    <%= javascript_include_tag 'application' %>
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_key"]%>&callback=initMap"
+  async defer>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  </script>
+  </head>
+
+  <body>
+
+    <%= yield %>
+    <footer>
+      <form id='train-updater' action='/update_trains' method='get'>
+        <input type='submit' value='Update these trains' />
+      </form>
+      <div class='train-locations'>
+        <h2>Things go here</h2>
+      </div>
+    </footer>
+
+  </body>
+</html>
