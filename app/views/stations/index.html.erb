@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-lg-3" id='menu_container'>
+      dynamic stuff
+    </div>
+
+    <div class="col-sm-9 col-lg-9" id="map"> <div class="floating" id="toggle">&mdash;</div>
+    <body>
+   <div class="floating" id="toggle">&mdash;</div>
+   <div id="panel">
+     <div class="block">
+       <strong>Sample Queries</strong>
+       <div id="button-div">
+         <button id="eg1" class="button raised blue">EXAMPLE 1</button>
+
+       </div>
+     </div>
+     <form id="controls">
+       <div class="block">
+         <div>
+           <strong><span id="requestURL">Request URL</span> or Path (Pipe Separated)</strong><br>
+           <textarea id="coords" class="u-full-width coords-large" type="text" placeholder="40.702068,-74.013664|40.704461,-74.015094,28|" id="exampleEmailInput"></textarea>
+         </div>
+         <div>
+           <label>Interpolate: </label>
+           <input for="interpolate" id="interpolate" type="checkbox" checked/>
+         </div>
+       </div>
+       <div>
+         <div class="block">
+           <button id="plot" class="button raised blue">Plot a Course</button>
+         </div>
+         <div id="legend">
+           <img src="https://maps.google.com/mapfiles/ms/icons/green-dot.png" style="height:16px;"> Original
+           <img src="https://maps.google.com/mapfiles/ms/icons/red-dot.png"/> Snapped
+           <img src="https://maps.google.com/mapfiles/ms/icons/blue-dot.png"/> Interpolated
+           <img src="https://maps.google.com/mapfiles/ms/icons/yellow-dot.png"/> Unsnappable
+         </div>
+         <div>
+           <p id="unsnappedPoints">
+           </p>
+         </div>
+       </div>
+     </form>
+   </div>
+   <div id="map">
+   </div>
+     <div class='hello' id='circle'></div>
+    <div id='start'>start</div>
+</div>
+  </div>
+</div>

@@ -7,3 +7,13 @@ Stick that wherever you're needing to put your API key in the Rails app, then se
 Now in your Rails app when you use ENV["MY_API_KEY"] it will insert in place the value some_long_example_api_key_09823098270098 when your app is running on Heroku.
 
 If you're trying to reference the environment variable within a .js.erb file you would need to write it as <%= ENV["goggle_key"] %>
+
+
+
+EXAMPLE OF MOTION FOR
+
+https://developers.google.com/maps/documentation/roads/inspector
+
+icons
+
+https://sites.google.com/site/gmapsdevelopment/

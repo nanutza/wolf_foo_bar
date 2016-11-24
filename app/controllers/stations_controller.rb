@@ -1,7 +1,7 @@
 class StationsController < ApplicationController
 
   def index
-<<<<<<< HEAD
+
     @stations = Station.all
     @lines = []
     # Stationline.pluck(:line_id).uniq.each do |stationline|
@@ -9,7 +9,7 @@ class StationsController < ApplicationController
         Station.find(station.station_id)
       # end
     end
-=======
+
     data=Net::HTTP.get(URI.parse("http://datamine.mta.info/mta_esi.php?key=5a44f5292fb0076e8f17017858ce3c58"))
     feed = Transit_realtime::FeedMessage.decode(data)
 
@@ -67,7 +67,7 @@ class StationsController < ApplicationController
   #   end
   #   entities_hash
   # end
->>>>>>> preppping to rebase
 
-  end
+
+  # end
 end

@@ -1,88 +1,22 @@
+// class Map extends React.component {
+//   constructor() {
+//     super()
+//     this.lineStyle = [{
+//       icon: {
+//         path: 'M 0, -1, 0, 1',
+//         strokeOpacity: 2,
+//         strokeWeight: 3,
+//         scale: 3
+//       },
+//       offset: '0',
+//       repeat: '20px'
+//     }]
+//
 function initMap() {
   // Styles a map in night mode.
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 40.774, lng: -73.945},
     zoom: 12,
-    // styles: [
-    //   {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
-    //   {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-    //   {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
-    //   {
-    //     featureType: 'administrative.locality',
-    //     elementType: 'labels.text.fill',
-    //     stylers: [{color: '#d59563'}]
-    //   },
-    //   {
-    //     featureType: 'poi',
-    //     elementType: 'labels.text.fill',
-    //     stylers: [{color: '#d59563'}]
-    //   },
-    //   {
-    //     featureType: 'poi.park',
-    //     elementType: 'geometry',
-    //     stylers: [{color: '#263c3f'}]
-    //   },
-    //   {
-    //     featureType: 'poi.park',
-    //     elementType: 'labels.text.fill',
-    //     stylers: [{color: '#6b9a76'}]
-    //   },
-    //   {
-    //     featureType: 'road',
-    //     elementType: 'geometry',
-    //     stylers: [{color: '#38414e'}]
-    //   },
-    //   {
-    //     featureType: 'road',
-    //     elementType: 'geometry.stroke',
-    //     stylers: [{color: '#212a37'}]
-    //   },
-    //   {
-    //     featureType: 'road',
-    //     elementType: 'labels.text.fill',
-    //     stylers: [{color: '#9ca5b3'}]
-    //   },
-    //   {
-    //     featureType: 'road.highway',
-    //     elementType: 'geometry',
-    //     stylers: [{color: '#746855'}]
-    //   },
-    //   {
-    //     featureType: 'road.highway',
-    //     elementType: 'geometry.stroke',
-    //     stylers: [{color: '#1f2835'}]
-    //   },
-    //   {
-    //     featureType: 'road.highway',
-    //     elementType: 'labels.text.fill',
-    //     stylers: [{color: '#f3d19c'}]
-    //   },
-    //   {
-    //     featureType: 'transit',
-    //     elementType: 'geometry',
-    //     stylers: [{color: '#2f3948'}]
-    //   },
-    //   {
-    //     featureType: 'transit.station',
-    //     elementType: 'labels.text.fill',
-    //     stylers: [{color: '#d59563'}]
-    //   },
-    //   {
-    //     featureType: 'water',
-    //     elementType: 'geometry',
-    //     stylers: [{color: '#17263c'}]
-    //   },
-    //   {
-    //     featureType: 'water',
-    //     elementType: 'labels.text.fill',
-    //     stylers: [{color: '#515c6d'}]
-    //   },
-    //   {
-    //     featureType: 'water',
-    //     elementType: 'labels.text.stroke',
-    //     stylers: [{color: '#17263c'}]
-    //   }
-    // ]
     styles: [
   {
     "elementType": "geometry",
@@ -374,8 +308,9 @@ function initMap() {
   }
 ]
 
-  });
 
+  });
+// }
   var line_1_shape = require('./lib/seeds/shapes_1.json');
 
   var circle = document.getElementById('circle'),
@@ -418,6 +353,51 @@ function createPolyline(map,lineCoordinates,lineSymbol){
     strokeWeight: 2
    });
  linePath.setMap(map);
+
+ var bounds = new google.maps.LatLngBounds();
+
+
+
+ var contentString = "";
+
+ var infowindow = new google.maps.InfoWindow({
+   content: contentString
+ });
+ //FOR LOOP TO ADD STATION MARKERS
+ // <% @stations.each do |station| %>
+ //
+ //   var stationPos = {lat:<%=station.latitude%>, lng:<%=station.longitude%>}
+ //   var marker = new google.maps.Marker({
+ //     position: stationPos,
+ //     map: map,
+ //     title: 'STATION'
+ //   });
+ //   bounds.extend(marker.position);
+ //   marker.addListener('click', function() {
+ //     infowindow.open(map, marker);
+ //   });
+ // <% end %>
+ // <% line = @lines[0] %>
+ //   var coordinates = [];
+ //     <% line.each do |station| %>
+ //       coordinates.push({lat: <%=station.latitude%>, lng:<%=station.longitude%>});
+ //     <% end %>
+
+     var linePath = new google.maps.Polyline({
+       path: coordinates,
+       geodesic: true,
+       strokeColor: '#FF0000',
+       strokeOpacity: 1.0,
+       strokeWeight: 2
+     });
+     coordinates = [];
+    //  <% line_1_shape.each { |lat, lng| console.log(circle) } %>
+
+ linePath.setMap(map);
+
+
+ map.fitBounds(bounds);
 }
 
 }
+// }
